@@ -7,12 +7,13 @@ const city_UV = $('#city_UV');
 const forecast = $('.forecast');
 const listGroup = $('.list-group');
 
-//initialize city array that saved in localstorage
+// Initialize the city array that is saved in the local storage.
 const cities = JSON.parse(localStorage.getItem('cities')) || [];
 
-// initialize with the weather of New York City
+// initialize with the weather of NYC.
 $(document).ready(() => {
-    // render our searching history
+
+    // Render our searching history
     cities.forEach((city) => {
         listGroup.prepend(
             $(`<li class="list-group-item text-capitalize">${city}</li>`)
@@ -23,7 +24,7 @@ $(document).ready(() => {
     getCurrentWeather(city);
     getFutureWeather(city);
 
-    // Event Listener on list item been clicked
+    // Event Listener on list item has been clicked.
     $('.list-group-item').on('click', (e) => {
         const city = e.target.textContent;
         getCurrentWeather(city);
@@ -31,32 +32,32 @@ $(document).ready(() => {
     });
 });
 
-// Event Listener on submit
+// Event Listener on submit.
 $('form').on('submit', (e) => {
     e.preventDefault();
 
     const city = $('input').val();
     cities.push(city);
 
-    // save the city name to localStorage
+    // City name has been saved to the local storage.
     localStorage.setItem('cities', JSON.stringify(cities));
 
-    // render search history
+    // Render search history.
     listGroup.prepend($(`<li class="list-group-item">${city}</li>`));
 
-    // Event Listener on list item been clicked
+    // Event Listener on list item has been clicked.
     $('.list-group-item').on('click', (e) => {
         const city = e.target.textContent;
         getCurrentWeather(city);
         getFutureWeather(city);
     });
 
-    // get the weather info
+    // Get the weather info.
     getCurrentWeather(city);
     getFutureWeather(city);
 });
 
-//Function to get the current weather
+// Function to get the current weather.
 function getCurrentWeather(city) {
     let baseURL =
         'https://api.openweathermap.org/data/2.5/weather?appid=9385bb375daef99b7d5d3a120b3b3b1e&units=imperial';
@@ -65,7 +66,8 @@ function getCurrentWeather(city) {
         url: baseURL + `&q=${city}`,
         method: 'GET',
     }).then((res) => {
-        // transfer unix time stamp to formattedTime
+
+        // Transfer unix time stamp to formattedTime.
         const unix_timestamp = res.dt;
         const date = new Date(unix_timestamp * 1000);
         const month = date.getMonth() + 1;
@@ -73,7 +75,7 @@ function getCurrentWeather(city) {
         const year = date.getFullYear();
         const formatedTime = `(${month}/${day}/${year})`;
 
-        //render the current weather
+        //Render the current weather.
         city_name.text(res.name + ' ' + formatedTime);
         city_temp.text('Temperature: ' + res.main.temp + '℉');
         city_humidity.text('Humidity: ' + res.main.humidity + '%');
@@ -84,11 +86,11 @@ function getCurrentWeather(city) {
             )
         );
 
-        //get the coord of the city
+        // Get the coordinates of the city.
         const lat = res.coord.lat;
         const lon = res.coord.lon;
 
-        //get the UV value with coord and render it
+        //get the UV value with coordinates and render it.
         $.ajax({
             url: ` https://api.openweathermap.org/data/2.5/uvi?appid=9385bb375daef99b7d5d3a120b3b3b1e&units=imperial&lat=${lat}&lon=${lon}`,
             method: 'GET',
@@ -106,7 +108,7 @@ function getCurrentWeather(city) {
     });
 }
 
-// Function to get the future weather
+// Function to get the future weather.
 function getFutureWeather(city) {
     let baseURL =
         'https://api.openweathermap.org/data/2.5/forecast?appid=9385bb375daef99b7d5d3a120b3b3b1e&units=imperial';
@@ -115,17 +117,18 @@ function getFutureWeather(city) {
         url: baseURL + `&q=${city}`,
         method: 'GET',
     }).then((res) => {
-        //get the weather of next five days
+
+        // Get the weather for the next five days.
         const futureWeather = [];
 
         for (let i = 4; i < res.list.length; i += 8) {
             futureWeather.push(res.list[i]);
         }
 
-        //empty previous weather forecast
+        // Empty the previous weather forecast.
         forecast.empty();
 
-        //render the future weather
+        // Render the future weather.
         futureWeather.forEach((day) => {
             const weatherCard = $('<div>').addClass(
                 'card col-sm-4 col-md-2 bg-primary text-white'

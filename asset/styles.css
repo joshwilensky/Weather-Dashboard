@@ -1,3 +1,148 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 16px;
+    background-color: whitesmoke;
+    margin: 0px;
+}
+
+header {
+    border-bottom-style: ridge;
+    background-color: white;
+}
+
+.main {
+    margin-top: 35px;
+    margin-left: 33px;
+    padding-left: 0px;
+}
+
+form h2 {
+    color: rgb(70, 182, 145);
+    padding: 30px 0px 30px 0px;
+    border-bottom-style: ridge;
+    margin-bottom: 30px;
+}
+
+.contact {
+    max-width: 70%;
+    margin-top: 20px;
+    background-color: white;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.h1 {
+    background-color: rgb(70, 182, 145);
+    color: white;
+    text-align: center;
+    padding: 13px;
+    margin-left: 33px;
+    margin-bottom: 0;
+}
+
+li {
+    align-items: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .center {
+        margin-left: 0px;
+        justify-content: center;
+    }
+
+    #aboutmeimage {
+        max-width: 100%;
+    }
+
+    #floatLeft {
+        float: left;
+    }
+
+    .main {
+        padding: 0px;
+        margin-left: 0px;
+    }
+
+    .contact {
+        max-width: 85%;
+        margin-left: 28px;
+    }
+
+    textarea.form-control {
+        height: 107px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .end {
+        justify-content: flex-end;
+    }
+}
+
+.input {
+    background-color: rgb(70, 182, 145);
+    border-color: rgb(70, 182, 145);
+}
+
+body,
+.sticky-footer-wrapper {
+    min-height: 50vh;
+}
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+
+.aboutMe {
+    max-width: 50%;
+    max-height: 240px;
+    float: left;
+    margin-right: 20px;
+}
+
+.aboutCard {
+    background-color: white;
+    border: lemonchiffon solid 2px;
+}
+
+.abouth2,
+.prtfolioh2 {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid;
+    color: rgb(70, 182, 145);
+}
+
+.portfolio {
+    margin-bottom: 25px;
+    min-height: 100%;
+    width: 100%;
+}
+
+.figure {
+    position: relative;
+}
+
+.h3 {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(70, 182, 145);
+    /* bottom: 66px; */
+    /* left: 15px; */
+    color: white;
+    text-align: center;
+    padding: 21px;
+    bottom: 50px;
+}
+
 header {
     font-size: xx-large;
     font-weight: bold;

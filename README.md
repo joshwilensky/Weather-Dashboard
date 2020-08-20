@@ -32,13 +32,19 @@
 
 As A traveler I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
 
+---
+
 ### <a name="Screenshots"></a>Screenshots:
 
 ![image](https://user-images.githubusercontent.com/66797344/90827773-d458f800-e30a-11ea-996b-b186a71f8d16.png)
 
+---
+
 ### <a name="Installation"></a>Installations:
 
 N/A
+
+---
 
 ### <a name="Usage"></a>Usages:
 
@@ -87,6 +93,8 @@ N/A
 ### <a name="Deployment"></a>Deployment:
 
 N/A
+
+---
 
 ### <a name="Questions"></a>Email the Author:
 
